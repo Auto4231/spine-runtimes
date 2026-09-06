@@ -385,13 +385,13 @@ Error SpineAtlasResource::save_to_file(const String &path) {
 	content["specular_texture_prefix"] = specular_map_prefix;
 #if VERSION_MAJOR > 3
 #if VERSION_MAJOR >= 4 && VERSION_MINOR >= 7
-    Ref<JSON> json;
-    json.instantiate();
-    file->store_string(json->stringify(content));
+	file->store_string(JSON::stringify(content));
+	file->flush();
 #else
-    JSON *json = memnew(JSON);
-    file->store_string(json->stringify(content));
-    memdelete(json);
+	JSON *json = memnew(JSON);
+	file->store_string(json->stringify(content));
+	file->flush();
+	memdelete(json);
 #endif
 #else
 	file->store_string(JSON::print(content));
