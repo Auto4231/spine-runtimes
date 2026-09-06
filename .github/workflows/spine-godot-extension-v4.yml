@@ -23,6 +23,7 @@ env:
   GODOT_TAG: ${{ inputs.godot_tag }}
   GODOT_VERSION: ${{ inputs.godot_version }}
   DEV_BUILD: ${{ inputs.dev }}
+  GODOT_CPP_API_VERSION: "4.7"
 
 jobs:
   build-windows:
